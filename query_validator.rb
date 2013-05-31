@@ -1,3 +1,5 @@
+#foo sanitize string input
+
 module Goonbee
 	module QueryValidator
 		class Validator
@@ -19,16 +21,16 @@ module Goonbee
 
 				def process(a, b)
 					if type(a) == :str && type(b) == :str
-						return b
+						b
 					elsif type(a) == :num && type(b) == :num
-						return b
+						b
 					elsif type(a) == :array && type(b) == :array
-						return b.map {|i| process(a[0], i)}
+						b.map {|i| process(a[0], i)}
 					elsif type(a) == :hash && type(b) == :hash
 						new_hash = Hash.new
 
 						a.each_key do |key|
-							if key[0] == "_"#optional key
+							if key[0] == '_'#optional key
 								search_key_s = key[1..-1]
 								search_key_sym = search_key_s.to_sym#this one is safe because it comes from our finite set query
 
