@@ -14,6 +14,8 @@ module Goonbee
 							return :hash
 						when Array
 							return :array
+						when TrueClass, FalseClass
+							return :bool
 						else
 							return nil
 					end
@@ -23,6 +25,8 @@ module Goonbee
 					if type(a) == :str && type(b) == :str
 						b
 					elsif type(a) == :num && type(b) == :num
+						b
+					elsif type(a) == :bool && type(b) == :bool
 						b
 					elsif type(a) == :array && type(b) == :array
 						b.map {|i| process(a[0], i)}
