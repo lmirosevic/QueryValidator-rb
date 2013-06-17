@@ -24,13 +24,17 @@ module Goonbee
 							return :array
 						when TrueClass, FalseClass
 							return :bool
+						when :_
+							return :any
 						else
 							return nil
 					end
 				end
 
 				def process(a, b)
-					if type(a) == :str && type(b) == :str
+					if type(a) == :any
+						b
+					elsif type(a) == :str && type(b) == :str
 						b
 					elsif type(a) == :num && type(b) == :num
 						b
