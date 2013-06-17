@@ -1,3 +1,11 @@
+# encoding: UTF-8
+
+# query_validator.rb
+# Goonbee
+#
+# Created by Luka Mirosevic on 27/04/2013.
+# Copyright (c) 2013 Goonbee. All rights reserved.
+
 #foo sanitize string input
 
 module Goonbee
