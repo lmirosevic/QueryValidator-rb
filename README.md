@@ -13,19 +13,6 @@ Include the module to save some typing:
 include Goonbee:QueryValidator
 ```
 
-Suppose you require the user to send along a payload that looks something like:
-```ruby
-{
-	"query": ""
-}
-```
-
-A basic example:
-
-```ruby
-#
-```
-
 Suppose your API has a method that sends a message from one user to another located on /sendMessage and you want the client to pass along his/her authentication, target user's id, the message, a flag for whether to notify the recipient a priority, and a list of tags. A convenient way would be for the client to wrap all of those parameters into a JSON payload and send it inside a POST request:
 ```JSON
 {
@@ -60,7 +47,7 @@ safe_verified_complete_hash = {
 }
 ```
 
-Well with QueryValidator, all you have to do is provide that desired target payload as a template and the library will do the rest:
+With QueryValidator, all you have to do is provide that desired target payload as a template and the library will do the rest:
 ```ruby
 raw_user_payload = ... #this is the raw user's payload
 
@@ -106,7 +93,7 @@ safe_verified_complete_hash = Validator::process({
 #...do something with the hash
 ```
 
-Wildcards are also supported, this one is special, so if your message is dynamic and could be many different things you would specify the value as '_':
+Wildcards are supported, this one is special, so if your message is dynamic and could be many different things you would specify the value as '_':
 ```ruby
 hash = Validator::process({
 	:auth => {					#hash
