@@ -3,7 +3,7 @@
 # query_validator.rb
 # Goonbee Query Validator
 #
-# Created by Luka Mirosevic on 27/04/2013.
+# Created by Luka Mirosevic on 27/07/2013.
 # Copyright (c) 2013 Goonbee. All rights reserved.
 
 module Goonbee
