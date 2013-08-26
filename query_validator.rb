@@ -6,10 +6,12 @@
 # Created by Luka Mirosevic on 27/04/2013.
 # Copyright (c) 2013 Goonbee. All rights reserved.
 
-#foo sanitize string input
 
 module Goonbee
 	module QueryValidator
+		class MalformedQueryError < StandardError
+		end
+		
 		class Validator
 			class << self
 				def type(obj)
@@ -63,13 +65,13 @@ module Goonbee
 							elsif b.has_key?(search_key_sym)#has symbol?
 								new_hash[search_key_sym] = process(a[key], b[search_key_sym])
 							else
-								raise 'Doesn\'t match' unless optional
+								raise MalformedQueryError unless optional
 							end
 						end
 
 						return new_hash
 					else
-						raise 'Doesn\'t match'
+						raise MalformedQueryError
 					end
 				end
 			end
